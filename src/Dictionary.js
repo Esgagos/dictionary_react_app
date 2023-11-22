@@ -7,7 +7,7 @@ export default function Dictionary() {
   const apiKey = "6e77343taf210f7060a5ae1ab4ao9183";
   const processResponse = (response) => {
     const r = response.data;
-    return console.log("hello");
+    return { word: r.word };
   };
   const handleResponse = (response) => {
     console.log("responses:", response.data);
@@ -40,6 +40,7 @@ export default function Dictionary() {
             id="search-input"
           ></input>
         </form>
+        {wordValue && <p>Information coming soon</p>}
       </div>
     </div>
   );
