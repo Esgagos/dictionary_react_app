@@ -1,20 +1,20 @@
 import React, { useState, useRef } from "react";
 import "./dictionary.css";
+import Results from "./Results";
 import axios from "axios";
 export default function Dictionary() {
-  const [wordValue, setWordValue] = useState(undefined);
+  const [wordValues, setWordValues] = useState(undefined);
   const searchValueInputRef = useRef("");
   const apiKey = "6e77343taf210f7060a5ae1ab4ao9183";
-  const processResponse = (response) => {
-    const r = response.data;
-    return { word: r.word };
-  };
+
+  // const processResponse = (response) => {};
+
   const handleResponse = (response) => {
-    console.log("responses:", response.data);
-    if (response.data) {
-      const processedResponse = processResponse(response);
-      setWordValue(processedResponse);
-    }
+    const responses = response.data;
+    console.log("responses:", response);
+    // if (response.data) {
+    //   const processedResponse = processResponse(response);
+    setWordValues(responses);
   };
 
   const handleSubmit = (event) => {
@@ -23,7 +23,12 @@ export default function Dictionary() {
     console.log(word);
 
     const apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${apiKey}`;
-    axios.get(apiUrl).then(handleResponse);
+    axios
+      .get(apiUrl)
+      .then(handleResponse)
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (
@@ -40,7 +45,7 @@ export default function Dictionary() {
             id="search-input"
           ></input>
         </form>
-        {wordValue && <p>Information coming soon</p>}
+        <Results results={wordValues} />
       </div>
     </div>
   );
