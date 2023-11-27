@@ -1,7 +1,6 @@
 import React from "react";
 import Meaning from "./Meaning";
 export default function Results({ results }) {
-  const numMeanings = 3;
   console.log("results: ", results);
   if (results) {
     return (
