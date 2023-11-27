@@ -1,6 +1,8 @@
 import React from "react";
 import Meaning from "./Meaning";
 export default function Results({ results }) {
+  const numMeanings = 3;
+  console.log("results: ", results);
   if (results) {
     return (
       <div className="results">
@@ -8,11 +10,11 @@ export default function Results({ results }) {
         <div>
           <em>{results.phonetic}</em>
         </div>
-        {results.meanings.map((meaning, index) => {
-          return (
-            <div key={index}>{meaning && <Meaning meaning={meaning} />}</div>
-          );
-        })}
+        <div>
+          {results.meanings.map((meaning, index) => {
+            return <Meaning key={index} meaning={meaning} />;
+          })}
+        </div>
       </div>
     );
   } else {
