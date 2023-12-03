@@ -1,0 +1,26 @@
+section {
+  background-color: rgb(248, 242, 242);
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  margin: 13px 29vw 10px 29vw;
+  text-align: left;
+  padding: 7px 2vw 15px 2vw;
+  text-transform: capitalize;
+}
+
+.results h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 6px;
+  margin-top: 12px;
+  text-transform: capitalize;
+  color: #1e40dd;
+}
+.word-phonetic {
+  color: #00befb;
+  font-size: 1em;
+}
+.results li {
+  list-style-type: none;
+}

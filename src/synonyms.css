@@ -1,0 +1,12 @@
+.synonyms {
+  padding-left: 0;
+  font-size: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.synonyms li {
+  padding-right: 2em;
+  line-height: 2;
+}

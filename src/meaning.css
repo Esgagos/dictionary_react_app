@@ -1,0 +1,18 @@
+.meaning h4 {
+  font-size: 1.25em;
+  color: #1e40dd;
+  text-transform: none;
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+.meaning .word-example {
+  color: rgb(95, 95, 95);
+  font-size: 0.97em;
+  line-height: 2;
+  padding-top: 5px;
+}
+.meaning .word-definition {
+  line-height: 1.5;
+  /* opacity: 0.8; */
+}
