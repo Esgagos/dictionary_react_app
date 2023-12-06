@@ -24,3 +24,16 @@
   margin: 10px 29vw 0px 29vw;
   border-radius: 40px;
 }
+footer {
+  font-style: italic;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 2vw 0 2vw 0;
+}
+footer a {
+  color: #3156dd;
+  text-decoration: none;
+}
+.footer-signature {
+  color: #e5a722;
+}

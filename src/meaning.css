@@ -1,3 +1,7 @@
+.meaning {
+  font-family: "Poppins", sans-serif;
+}
+
 .meaning h4 {
   font-size: 1.25em;
   color: #1e40dd;
@@ -6,15 +10,17 @@
   margin-bottom: 14px;
 }
 .meaning .word-example {
-  color: rgb(95, 95, 95);
-  font-size: 0.97em;
+  color: rgb(124 124 124);
+  font-size: 0.9em;
   line-height: 2;
+  padding-left: 15px;
 }
 .meaning .word-example::first-letter {
   text-transform: capitalize;
 }
 .meaning .word-definition {
   line-height: 1.5;
+  padding-left: 15px;
 }
 .word-definition::first-letter {
   text-transform: capitalize;

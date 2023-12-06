@@ -1,9 +1,13 @@
 .synonyms {
-  padding-left: 0;
+  padding-left: 15px;
   font-size: 0.98em;
 }
 .synonyms li {
   padding-right: 2em;
   line-height: 1.5;
   display: inline-block;
+}
+.synonyms .similar {
+  color: blue;
+  font-style: italic;
 }
