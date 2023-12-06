@@ -40,7 +40,6 @@ export default function Dictionary() {
 
       const headers = {
         Authorization: `Bearer ${deployedPexelsApiKey}`,
-        "Referer-Policy": "origin",
       };
       // const myHeaders = headers.set(
       //   "Access_Control_Allow_Origin",
@@ -48,7 +47,7 @@ export default function Dictionary() {
       // );
 
       axios
-        .get(pexelsApiUrl, { method: "GET" }, { headers: headers })
+        .get(pexelsApiUrl, { method: "GET", headers: headers })
         .then(handlePexelsResponse)
 
         .catch((e) => {
