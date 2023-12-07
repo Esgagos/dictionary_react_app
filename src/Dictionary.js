@@ -2,12 +2,12 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import "./dictionary.css";
 import Results from "./Results";
 import axios from "axios";
-import { unSplashAccessKey } from "./keys";
 export default function Dictionary() {
   const [wordValues, setWordValues] = useState(undefined);
   const [resultThumbnails, setResultThumbnails] = useState([]);
   const searchValueInputRef = useRef("");
   const apiKey = "6e77343taf210f7060a5ae1ab4ao9183";
+  const unSplashAccessKey = "lLT0Mb5eM03B-8a50Pm4IPtYtwPRHTs1r0dJ7f4-uZ8";
 
   const handleResponse = useCallback((response) => {
     const responses = response.data;
