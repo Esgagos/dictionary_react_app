@@ -2,14 +2,12 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import "./dictionary.css";
 import Results from "./Results";
 import axios from "axios";
+import { unSplashAccessKey } from "./keys";
 export default function Dictionary() {
   const [wordValues, setWordValues] = useState(undefined);
+  const [resultThumbnails, setResultThumbnails] = useState([]);
   const searchValueInputRef = useRef("");
   const apiKey = "6e77343taf210f7060a5ae1ab4ao9183";
-  const deployedPexelsApiKey =
-    "cBIsCSFVQR4c1k64d9PtVZSOIDhgzwX7ASOLJYSofPRdzYWKZgtglsxs";
-  // const localHostPexelsApiKey =
-  //   "9d2niTzSUDC4sp1KuXrp4Q9W1UrKIfcigaRGeg8s4JGUP3TLIVuxQnFz";
 
   const handleResponse = useCallback((response) => {
     const responses = response.data;
@@ -21,9 +19,12 @@ export default function Dictionary() {
       setWordValues(responses);
     }
   }, []);
-  const handlePexelsResponse = (response) => {
-    console.log("pexels:", response);
-    response.add("Access_Control_Allow_origin");
+  const handleImageSearchResponse = (response) => {
+    console.log("images:", response);
+    let results = response.data?.results;
+    results = results.slice(0, 4);
+    const thumbs = results.map((x) => x.urls?.thumb);
+    setResultThumbnails(thumbs);
   };
 
   const handleLookup = useCallback(
@@ -36,20 +37,13 @@ export default function Dictionary() {
         .catch((e) => {
           console.log(e);
         });
-      const pexelsApiUrl = `https://api.pexels.com/v1/search?query=${word}&per_page=1`;
-
+      const unSplashUrl = `https://api.unsplash.com/search/photos?query=${word}&orientation=squarish`;
       const headers = {
-        Authorization: `Bearer ${deployedPexelsApiKey}`,
+        Authorization: `Client-ID ${unSplashAccessKey}`,
       };
-      // const myHeaders = headers.set(
-      //   "Access_Control_Allow_Origin",
-      //   "http//http://localhost:3000/"
-      // );
-
       axios
-        .get(pexelsApiUrl, { method: "GET", headers: headers })
-        .then(handlePexelsResponse)
-
+        .get(unSplashUrl, { method: "GET", headers: headers })
+        .then(handleImageSearchResponse)
         .catch((e) => {
           console.log(e);
         });
@@ -86,7 +80,7 @@ export default function Dictionary() {
           </form>
         </div>
         <div className="body-container">
-          <Results results={wordValues} />
+          <Results results={wordValues} thumbs={resultThumbnails} />
         </div>
         <footer>
           <a

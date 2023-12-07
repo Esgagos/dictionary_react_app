@@ -1,7 +1,7 @@
 import React from "react";
 import Meaning from "./Meaning";
 import "./results.css";
-export default function Results({ results }) {
+export default function Results({ results, thumbs }) {
   console.log("results: ", results);
   if (results) {
     return (
@@ -12,6 +12,14 @@ export default function Results({ results }) {
             <em className="word-phonetic">/{results.phonetic}/</em>
           </div>
         </section>
+
+        <div className="thumbs-container">
+          {thumbs.map((x, index) => (
+            <span key={index}>
+              <img className="result-thumb" src={x} />
+            </span>
+          ))}
+        </div>
 
         <div>
           {results?.meanings?.map((meaning, index) => {
