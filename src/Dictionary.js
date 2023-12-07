@@ -23,7 +23,10 @@ export default function Dictionary() {
     console.log("images:", response);
     let results = response.data?.results;
     results = results.slice(0, 4);
-    const thumbs = results.map((x) => x.urls?.thumb);
+    const thumbs = results.map((x) => ({
+      url: x.urls?.thumb,
+      desc: x.alt_description,
+    }));
     setResultThumbnails(thumbs);
   };
 

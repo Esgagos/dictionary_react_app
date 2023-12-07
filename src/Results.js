@@ -16,7 +16,7 @@ export default function Results({ results, thumbs }) {
         <div className="thumbs-container">
           {thumbs.map((x, index) => (
             <span key={index}>
-              <img className="result-thumb" src={x} />
+              <img className="result-thumb" src={x.url} alt={x.desc} />
             </span>
           ))}
         </div>
